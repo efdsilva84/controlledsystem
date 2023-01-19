@@ -1,8 +1,4 @@
-
-<div class="container">
-
-<!--BUSCAR POR CREDENCIAL-->
-
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 <div class="row">
     <div class="col-lg-12 mt20">
         <div class="pull-left">
@@ -11,27 +7,25 @@
     </div>
 </div><br>
 
-<form action="<?php echo site_url('note/buscaCredencial') ?>" method="GET" >
+<form action="<?php echo site_url('note/pesquisar') ?>" method="POST" >
 <div class="col-md-4">
     <label for="inputEmail4" class="form-label">Nº Credencial:</label>
-    <input name="numero_cred" type="text" class="form-control" id="inputEmail4">
+    <input name="busca" id="busca" type="text" class="form-control" id="inputEmail4">
   </div>
   <div class="col-4" style="margin-top:45px;">
     <button type="submit" class="btn btn-primary">BUSCAR</button>
   </div><br>
-</form><br>
-
-<!--BUSCAR POR CREDENCIAL-->
-
-
+</form>
 
 <div class="row">
-    <div class="col-lg-12 mt40">
+    <div class="col-lg-12 mt30">
         <div class="pull-left">
             <h2>Novo Registro Funcionários</h2>
         </div>
     </div>
-</div><br>
+</div>
+
+
 <form class="row g-3" action="<?php echo site_url('note/novoFuncionarioPost') ?>" method="POST">
 
 <div class="col-md-2">
@@ -50,7 +44,7 @@
   <div class="col-md-2">
     <label for="inputPassword4" class="form-label">Tipo Veículo:</label>
     <input type="text" name="tipo_veiculo" class="form-control" id="inputPassword4">
-  </div> <br>
+  </div> 
 
   <div class="col-md-2">
     <label for="inputPassword4" class="form-label">Modelo:</label>
@@ -71,14 +65,11 @@
     <label for="inputPassword4" class="form-label">Tipo de Acesso:</label>
     <input type="text" name="tipo_acesso" class="form-control" id="inputPassword4">
   </div><br><br>
-  <div class="col-4" style="margin-top:45px;">
+  <div class="col-4" style="margin-top:28px;">
     <button type="submit" class="btn btn-primary">SALVAR</button>
   </div><br>
 </form> 
-
-<br>
 <hr>
-
 <table class="table table-striped table-hover">
        <thead>
           <tr>
@@ -90,10 +81,6 @@
              <th>Cor</th>
              <th>Placa</th>
              <th>Tipo de Acesso</th>
-
-
-
-
           </tr>
        </thead>
        <tbody>
@@ -108,48 +95,34 @@
              <td><?php echo $note->cor; ?></td>
              <td><?php echo $note->placa; ?></td>
              <td><?php echo $note->tipo_acesso; ?></td>
-
           </tr>
          <?php endforeach; ?>
          <?php endif; ?>
        </tbody>
     </table>
     <hr>
+</main>
 
-    <table class="table table-striped table-hover">
-       <thead>
-          <tr>
-             <th>Nº Credencial</th>
-             <th>Nome</th>
-             <th>CNH</th>
-             <th>Tipo Veículo</th>
-             <th>Modelo</th>
-             <th>Cor</th>
-             <th>Placa</th>
-             <th>Tipo de Acesso</th>
+
+
+<div class="container-fluid">
+
+<!--BUSCAR POR CREDENCIAL-->
 
 
 
 
-          </tr>
-       </thead>
-       <tbody>
-          <?php if($credencial): ?>
-          <?php foreach($credenciais as $note): ?>
-          <tr>
-             <td><?php echo $note->n_credencial; ?></td>
-             <td><?php echo $note->usu_credencial; ?></td>
-             <td><?php echo $note->cnh_credencial; ?></td>
-             <td><?php echo $note->tipo_veiculo; ?></td>
-             <td><?php echo $note->modelo; ?></td>
-             <td><?php echo $note->cor; ?></td>
-             <td><?php echo $note->placa; ?></td>
-             <td><?php echo $note->tipo_acesso; ?></td>
 
-          </tr>
-         <?php endforeach; ?>
-         <?php endif; ?>
-       </tbody>
-    </table>
+<!--BUSCAR POR CREDENCIAL-->
+
+
+
+
+
+
+<br>
+<hr>
+
+
 
     </div>

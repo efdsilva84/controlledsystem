@@ -19,15 +19,16 @@ class Note extends CI_Controller {
         $this->load->view('layout/footer');
 
     }
-    public function buscaCredencial(){
- 
-        $conditions = array();
+    public function pesquisar(){
+        $this->load->model('notes_model');
 
-        if($this->input->get('numero_cred') != NULL){
-            $conditions['n_credencial'] = $this->input->get('numero_cred');
-        }else{
-            $conditions['n_credencial'] = '';
-        }
+        $data['title'] = 'Credencial Buscada';
+        $data['resultado'] = $this->notes_model->buscar($_POST);
+
+
+        $this->load->view('layout/header');
+        $this->load->view('resultado_busca', $data);
+        $this->load->view('layout/footer');
 
 
 

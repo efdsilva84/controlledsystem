@@ -20,16 +20,14 @@ class Notes_model extends CI_Model {
 
     }
 
-    public function getCredencial(){
-        $this->db->select('*');
-        $query = $this->db->from('credenciais');
+    public function buscar($busca){
+        if(empty($busca)){
+            return array();
+        }
 
-        $condicoes = array( 'n_credencial' => 'n_credencial');
-        $this->db->where($condicoes);
-
-        $query = $this->db->get();
-        return $query->result();
-
+        $busca = $this->input->post("busca");
+        $this->db->like("n_credencial", $busca);
+        return $this->db->get("credenciais")->result_array();
 
     }
 
